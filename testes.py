@@ -1,27 +1,19 @@
 import unittest
-from converter import Conversor
+from converter import fahrenheit_para_celsius, celsius_para_fahrenheit
 
-class TestConversorKelvin(unittest.TestCase):
+def test_conversao_fahrenheit_para_celsius():
+    assert fahrenheit_para_celsius(32) == 0
+    assert fahrenheit_para_celsius(212) == 100
+    assert fahrenheit_para_celsius(68) == 20
 
-    def setUp(self):
-        self.conversor_test = Conversor('K', 300)
+def test_conversao_celsius_para_fahrenheit():
+    assert celsius_para_fahrenheit(0) == 32
+    assert celsius_para_fahrenheit(100) == 212
+    assert celsius_para_fahrenheit(20) == 68
 
-    def test_convertendo_de_kelvin_para_celsius(self):
-        self.conversor_test.converter('C')
+def run_tests():
+    test_conversao_fahrenheit_para_celsius()
+    test_conversao_celsius_para_fahrenheit()
+    print("Todos os testes passaram com sucesso!")
 
-        self.assertEqual(self.conversor_test.get_temp().get_escala(), 'C')
-        self.assertEqual(self.conversor_test.get_temp().get_temperatura(), 27.00)
-
-    def test_convertendo_de_kelvin_para_fahrenheit(self):
-        self.conversor_test.converter('F')
-
-        self.assertEqual(self.conversor_test.get_temp().get_escala(), 'F')
-        self.assertEqual(self.conversor_test.get_temp().get_temperatura(), 80.60)
-
-if __name__ == '__main__':
-    unittest.main()
-
-
-
-
-
+run_tests()
