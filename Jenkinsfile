@@ -9,7 +9,13 @@ pipeline {
         }
         stage('Build') {
             steps {
+                git branch: 'main', url: 'https://github.com/itsannaab/conversor_temperatura'
                 bat 'py converter.py'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'py -m pytest'
             }
         }
     }
