@@ -15,6 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                bat 'pip install -r requirements.txt'  
                 bat 'py -m pytest'
             }
         }
