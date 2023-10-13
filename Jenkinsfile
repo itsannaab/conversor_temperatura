@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'python3 converter.py'
+                bat 'py converter.py'
             }
         }
     }
